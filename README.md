@@ -1,1 +1,1 @@
-# Osteoporosis-indecator
+# Osteoporosis-indicator
