@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Osteocator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-light-gray w3-wide w3-padding w3-card">
+    <a href="#home" class="w3-bar-item w3-button"><b>Osteocator</b></a>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#indicate" class="w3-bar-item w3-button">Indicate</a>
+      <a href="#about" class="w3-bar-item w3-button">About</a>
+      <a href="#founders" class="w3-bar-item w3-button">Founders</a>
+      <a href="#contact" class="w3-bar-item w3-button">Contact us</a>
+    </div>
+  </div>
+</div>
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+<!---->
+  <!-- Indicate Section -->
+    <div class="w3-container w3-padding-32" id="indicate">
+        <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16"><strong>Indicate Osteoporosis</strong></h2>
+        <h4><p style="text-decoration-style: solid;">Main information.</p></h4>
+        <form action="{{url_for('predict')}}" method="post">
+          <input class="w3-input w3-section w3-border" type="number" placeholder="wieght (Kilograms)" required name="Weight">
+          <input class="w3-input w3-section w3-border" type="number" placeholder="Height (Centimeters)" required name="Height">
+          <input class="w3-input w3-section w3-border" type="number" placeholder="Age" required name="Age">
+          <br>
+
+          <h4>Handgrip Strength test (in Kilograms)</h4>
+          <h6>&nbsp; &nbsp;In this this you measure your grip strength (in Kg) for both arms three times. You must be sitting with your elbow in 90 degrees.<br>
+            &nbsp; &nbsp;To learn more about handgrip strength and its test, read <a href="https://drive.google.com/file/d/1lvcKP9r1e2msG7hxmhRNVFqNsAqJ5qUx/view">our paper</a></h6>
+          <input class="w3-input w3-section w3-border" type="number" placeholder="Right arm Trial 1" required name="Right_T1">
+          <input class="w3-input w3-section w3-border" type="number" placeholder="Left arm Trial 1" required name="Left_T1">
+          <input class="w3-input w3-section w3-border" type="number" placeholder="Right arm Trial 2" required name="Right_T2">
+          <input class="w3-input w3-section w3-border" type="number" placeholder="Left arm Trial 2" required name="Left_T2">
+          <input class="w3-input w3-section w3-border" type="number" placeholder="Right arm Trial 3" required name="Right_T3">
+          <input class="w3-input w3-section w3-border" type="number" placeholder="Left arm Trial 3" required name="Left_T3">
+          <input type="radio" id="male" name="Gender" value=1 required>
+          <label for="male">Male</label><br>
+          <input type="radio" id="female" name="Gender" value=0>
+          <label for="female">Female</label><br><br>
+
+
+
+          <button onclick="Click()" class="w3-button w3-black w3-section" type="submit">
+            <i class="fa fa-paper-plane"></i> SEND MESSAGE
+          </button>
+
+        </form>
+
+        <br>
+        <h4>
+	{{ prediction_text }}</h4><br>
+  <h5>
+  <p style="color:green">Safe zone: [0 - 0.6]</p>
+  <p style="color:red">Danger zone: [0.6 - 1]</p>
+  </h5>
+    </div>
+      </form>
+      
+<!-- About Section -->
+<div class="w3-container w3-padding-32" id="about">
+  <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16"><strong>About Osteocator</strong></h2>
+  <p><h4>
+    &nbsp;&nbsp;Osteocator is a machine learning learning model that helps indicating osteoprosis using a deep learning
+    model with physical parameters including age, height, gender, and most importantly the handgrip strength test results.
+    The im of osteoprosis is providing a sheep, fast, and effective way to detect osteoporosis before causing fractures
+    that can't be healed. The model indicate a result between 0 and 1 to detect if the patient is in the danger zone or not.
+    <br>
+    &nbsp;&nbsp;For further information about Osteocator and the whole project, you can read our research paper <a href="https://drive.google.com/file/d/1lvcKP9r1e2msG7hxmhRNVFqNsAqJ5qUx/view"> here </a>
+
+  </h4></p>
+</div>
+
+<!-- Founders Section -->
+<div class="w3-row-padding w3-grayscale" id="founders">
+  <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16"><strong>Founders</strong></h2>
+  <div class="w3-col l3 m6 w3-margin-bottom">
+    <img src="https://drive.google.com/uc?export=view&id=1FgGg2ZWxgheK1yhSS-iCTSJTB9TdzhV1" alt="Amr" style="width:100%">
+    <h3>Amr Taha El-Gamal</h3>
+    <p class="w3-opacity">CEO & Engineer</p>
+    <p>Website developer and biological content writer.</p>
+
+  </div>
+
+  <div class="w3-col l3 m6 w3-margin-bottom">
+      <img src="https://drive.google.com/uc?export=view&id=1EoGyIjmXOidO3VD7YzA42-RvIfnPxjf6" alt="Mohammed" style="width:100%">
+      <h3>Mohammed Ragab Attia</h3>
+      <p class="w3-opacity">CEO & Engineer</p>
+      <p>Model creator and technological content writer.</p>
+
+  </div>
+  <br><br>
+</div>
+
+<!--Contact-->
+<div class="w3-row-padding w3-grayscale" id="contact">
+  <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16"><strong>Contact us</strong></h2>
+  <form name="submit-to-google-sheet">
+    
+      <label for="name"><b>Name:</b></label><br>
+      <input class="w3-input w3-section w3-border" type="text" id="name" name="Name" placeholder="Enter your name"><br>
+      <label for="e-mail"><b>E-Mail:</b></label><br>
+      <input class="w3-input w3-section w3-border" type="text" id="e-mail" name="E-Mail" placeholder="Enter you E-mail"><br>
+      <label for="Message"><b>Message:</b></label><br>
+      <textarea class="w3-input w3-section w3-border" id="Message" name="Message" rows="5" cols="33" placeholder="Type your message here" maxlength="250"></textarea><br>
+
+      <button class="w3-button w3-black w3-section" type="submit" onclick="reset_form()">
+        <i class="fa fa-paper-plane"></i> SEND MESSAGE
+      </button>
+    
+  </form>
+
+</div>
+
+<!-- Counter -->
+<br>
+<div class="box">
+<h1><strong>
+  This program was able to help <i id= "output">0</i> people
+</strong></h1>
+</div>
+<br>
+
+<!-- End page content -->
+</div>
+<script src="script.js"></script>
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxU3KgMMRwVbyMMsSDIQiZebtw_5eJmi-FzJiFxkAwYO_yGtwn-UNu4ppFd3ULle5vg/exec'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+
+  const scriptURL_2 = 'https://script.google.com/macros/s/AKfycbxoK7zB5uFiNOS-H_zKgaWjoXzaCmqsAY6XE1tvTTkYR6zZ956CzZW_3W8yIAjGx5Mr/exec'
+  const form_2 = document.forms['indicate-sheet']
+
+  form_2.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL_2, { method: 'POST', body: new FormData(form_2)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+
+  function reset_form()
+  {
+    document.getElementById('contact_us').reset();
+  }
+</script>
+</body>
+</html>

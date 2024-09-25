@@ -1,0 +1,7 @@
+Flask==2.2.3
+gunicorn==20.1.0
+keras==2.11.0
+pandas==1.4.3
+path==16.6.0
+scikit-learn==1.2.1
+tensorflow==2.11.0

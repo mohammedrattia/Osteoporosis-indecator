@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Osteocator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body style="background-image: url('BG.jpg');">
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-light-gray w3-wide w3-padding w3-card">
+    <a href="#home" class="w3-bar-item w3-button"><b>O</b>steocator</a>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#founders" class="w3-bar-item w3-button">Founders</a>
+      <a href="#about" class="w3-bar-item w3-button">About</a>
+      <a href="#indicate" class="w3-bar-item w3-button">Indicate</a>
+    </div>
+  </div>
+</div>
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+  <!-- Indicate Section -->
+    <div class="w3-container w3-padding-32" id="indicate">
+        <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16">Indicate Osteoporosis</h2>
+        <h4><p style="text-decoration-style: solid;">Main information.</p></h4>
+        <form action="{{url_for('predict')}}" method="post">
+          <input class="w3-input w3-section w3-border" type="number" placeholder="wieght (Kilograms)" required name="wieght">
+          <input class="w3-input w3-section w3-border" type="number" placeholder="Height (Centimeters)" required name="wieght1">
+          <input class="w3-input w3-section w3-border" type="number" placeholder="Body Mass Index (BMI)" required name="wieght2">
+          <h6> &nbsp; &nbsp; To calculate your BMI visit <a href="https://www.calculator.net/bmi-calculator.html">this website</a></h6>
+          <input class="w3-input w3-section w3-border" type="number" placeholder="Age" required name="wieght3">
+          <br>
+
+          <h4>Handgrip Strength test (in Kilograms)</h4>
+          <h6>&nbsp; &nbsp;In this this you measure your grip strength (in Kg) for both arms three times. You must be sitting down with your elbow in 90 degrees.<br>
+            &nbsp; &nbsp;To learn more about handgrip strength and its test, read <a href="google.com">this paper</a></h6>
+          <input class="w3-input w3-section w3-border" type="number" placeholder="Right arm Trial 1" required name="wieght4">
+          <input class="w3-input w3-section w3-border" type="number" placeholder="Left arm Trial 1" required name="wieght5">
+          <input class="w3-input w3-section w3-border" type="number" placeholder="Right arm Trial 2" required name="wieght6">
+          <input class="w3-input w3-section w3-border" type="number" placeholder="Left arm Trial 2" required name="wieght7">
+          <input class="w3-input w3-section w3-border" type="number" placeholder="Right arm Trial 3" required name="wieght8">
+          <input class="w3-input w3-section w3-border" type="number" placeholder="Left arm Trial 3" required name="wieght9">
+          <input class="w3-input w3-section w3-border" type="number" placeholder="Average Results" required name="wieght10">
+          <input type="radio" id="male" name="gender" value=1>
+          <label for="male">Male</label><br>
+          <input type="radio" id="female" name="gender" value=0>
+          <label for="female">Female</label><br>
+
+          <button class="w3-button w3-black w3-section" type="submit">
+            <i class="fa fa-paper-plane"></i> SEND MESSAGE
+          </button>
+        </form>
+
+        <br>
+        <h4>
+	{{ prediction_text }}</h4>
+    </div>
+    <p>
+      <br> Safe Zone [0 - 0.6] <br> Danger Zone [0.6 - 1]
+    </p>
+
+
+
+<!-- About Section -->
+<div class="w3-container w3-padding-32" id="about">
+  <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16">About Osteocator</h2>
+  <p><h4>
+    &nbsp;&nbsp;Osteocator is a machine learning learning model that helps indicating osteoprosis using a deep learning 
+    model with physical parameters including age, height, gender, and most importantly the handgrip strength test results.
+    The im of osteoprosis is providing a sheep, fast, and effective way to detect osteoporosis before causing fractures 
+    that can't be healed. The model indicate a result between 0 and 1 to detect if the patient is in the danger zone or not.
+    <br>
+    &nbsp;&nbsp;For further information about Osteocator and the whole project, you can read our research paper <a href=""> here </a>
+  
+  </h4></p>
+</div>
+
+<!-- Founders Section -->
+<div class="w3-row-padding w3-grayscale" id="founders">
+  <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16">Founders</h2>
+  <div class="w3-col l3 m6 w3-margin-bottom">
+    <img src="Amr.jpg" alt="Amr" style="width:100%">
+    <h3>Amr Taha Elgamal</h3>
+    <p class="w3-opacity">CEO & Engineer</p>
+    <p>The biological content wrtiter & web creator</p>
+    <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+  </div>
+
+  <div class="w3-col l3 m6 w3-margin-bottom">
+      <img src="Ragab.jpg" alt="Mohammed" style="width:100%">
+      <h3>Mohammed Ragab Attia</h3>
+      <p class="w3-opacity">CEO & Engineer</p>
+      <p>The technological content wrtiter & model creator</p>
+      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+  </div>
+
+<!-- End page content -->
+</div>
+
+</body>
+</html>
